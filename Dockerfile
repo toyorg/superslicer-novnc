@@ -1,5 +1,5 @@
 # Get and install Easy noVNC.
-FROM golang:1.23-bookworm AS easy-novnc-build
+FROM golang:1.24-bookworm AS easy-novnc-build
 WORKDIR /src
 RUN go mod init build && \
     go get github.com/geek1011/easy-novnc@v1.1.0 && \
