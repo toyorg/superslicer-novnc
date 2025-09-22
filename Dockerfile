@@ -1,5 +1,5 @@
 # Get and install Easy noVNC.
-FROM golang:1.25-bookworm AS easy-novnc-build
+FROM golang:1.25-trixie AS easy-novnc-build
 WORKDIR /src
 RUN go mod init build && \
     go get github.com/geek1011/easy-novnc@v1.1.0 && \
@@ -19,7 +19,7 @@ RUN apt-get update -y && \
 
 RUN apt update && apt install -y --no-install-recommends --allow-unauthenticated \
     lxde gtk2-engines-murrine gtk2-engines-pixbuf arc-theme curl jq git\
-    libgtk2.0-dev libwx-perl libxmu-dev libgl1-mesa-glx libgl1-mesa-dri \
+    libgtk2.0-dev libwx-perl libxmu-dev libgl1-mesa-dri \
     xdg-utils locales pcmanfm libgtk-3-dev libglew-dev libudev-dev libdbus-1-dev zlib1g-dev locales locales-all \
     && apt autoclean -y \
     && apt autoremove -y \
